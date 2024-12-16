@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "5843f207-bcb0-4318-aa7a-689cf61de615",
+		"name": "cauvery-cough",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31021404"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "access-key",
+						"value": "bWq8yF2sVAiklcKD0QaGgfdf77eXw5gW",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "username=user1&password=password",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/predict",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTczMzA3NzQwN30.reefPvu1a6sScOOnRHbtgswfBdU6PYvU9INrCPCcclQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"answer1\": \"less than a week\",\n    \"answer2\": \"productive\",\n    \"answer3\": \"yellowish\",\n    \"answer4\": \"yes\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
